@@ -32,8 +32,11 @@ a.active {
 
 }
 
+h1{
+  color: #626262;
+}
 
 @font-face {
   font-family: 'Atvik-Regular';
-  src: url("Fonts/AktivGrotesk-Regular.otf");
+  src: url("Fonts/AktivGrotesk-Regular.ttf");
 }

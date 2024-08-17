@@ -1,25 +1,24 @@
 
-import vector from "../assets/vector.svg"
+import Vector from "../assets/vector.svg"
 import dude from "../assets/image 1.png"
 import scrolldown from "../assets/Scroll Down.svg"
 function HeroSection() {
     return (
-        <div className="hero-section h-screen bg-gradient-to-r from-[#FFFFFF00] to-[#F5753B0D] flex flex-col">
-            <div id="Hero" className=" grid grid-cols-[70%,1fr] flex-1 relative">
-            <div className="flex flex-col justify-center items-left px-[70px]">
-                <h1 className="text-7xl font-medium text-left text-[#000]">Start Training Today </h1>
-                <h1 className="text-7xl font-medium text-left text-[#000]"> with a <span className="pinkcolor">Lifestyle Change</span> </h1>  
-                <p className="text-2xl text-left font-normal text-[#000] mt-5 mb-5">Lorem ipsum dolor sit amet consectetur. Eget ut. Lorem ipsum dolor sit amet consectetur </p>
-                <div className="flex gap-8">
-                <button className="pink px-8 py-4 w-1/4 rounded-lg text-base text-white">Lorem ipsum</button>
-                <button className=" border-2 border-[#c94277] px-8 py-4 rounded-lg text-base pinkcolor">Lorem ipsum</button>
+        <div className="hero-section h-full pt-7 bg-gradient-to-r from-[#FFFFFF00] to-[#F5753B0D] flex flex-col">
+            <div id="Hero" className=" flex md:grid md:grid-cols-[55%,1fr] flex-col flex-1 relative sm:pl-7">
+            <div className="flex flex-col justify-center px-[10%] items-left">
+                <h1 className="text-5xl  flex flex-row flex-wrap max-sm:pr-5 mt-10 lg:text-7xl font-bold text-left text-[#000] text-wrap whitespace-nowrap"><span >Start Training Today with a <span className="pinkcolor whitespace-nowrap">Lifestyle</span> <span className="pinkcolor whitespace-break-spaces">Change</span></span></h1>
+                <p className="text-xl lg:text-3xl text-left font-normal text-[#000] mt-5 mb-5">Lorem ipsum dolor sit amet consectetur. Eget ut. Lorem ipsum dolor sit amet consectetur </p>
+                <div className="flex max-sm:gap-4 max-sm:justify-evenly gap-8">
+                <button className="pink px-6 py-4 rounded-lg text-base text-white">Lorem ipsum</button>
+                <button className=" border-2 border-[#c94277] px-6 py-4 rounded-lg text-base pinkcolor">Lorem ipsum</button>
                 </div>
             </div>
-            <div className="flex align-bottom justify-center relative">
-                <img className="absolute z-[-1]  lg:h-[400px] md:h-[400px] 2xl:h-[607px] bottom-0 right-0" alt="Vector" src={vector} />
-                <img className="h-[70vh] ml-auto mt-auto" alt="dude" src={dude} />
+            <div className="flex h-fit aspect-auto align-bottom max-sm:mt-5 justify-center items-center self-end bottom-0  relative">
+                <img className="absolute lg::top-[10%]  -z-10 -bottom-8 right-0"  alt="Vector"  src={Vector}/>
+                <img className="lg:h-[75%]  w-[75%] mt-auto" alt="dude" src={dude} />
             </div>
-            <img className="absolute bottom-[32px] left-[70px]" alt="scrolldown" src={scrolldown} />
+            <img className="absolute bottom-[32px] ml-[5%]" alt="scrolldown" src={scrolldown} />
             </div>
         </div>
     )
