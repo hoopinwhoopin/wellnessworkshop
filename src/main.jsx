@@ -9,6 +9,9 @@ import AboutUs2 from './Components/AboutUs2';
 import BronzeCourse from './Components/BronzeCourse';
 import Gallery from './Components/Gallery';
 import WhyUs from './Components/WhyUs';
+import Testimonials from './Components/Testimonials';
+import Footer from './Components/Footer';
+import JoinComment from './Components/JoinComment';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -20,11 +23,12 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <Marquee/>
   
   <BronzeCourse/>
-  <AboutUs2/>
   <WhyUs  />
   <Marquee/>
+  <AboutUs2/>
   <Gallery/>
-  
-  
+  <Testimonials/>
+  <JoinComment/>
+  <Footer/>
   </React.StrictMode>,
 )
