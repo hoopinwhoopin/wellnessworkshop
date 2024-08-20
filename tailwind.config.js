@@ -7,6 +7,9 @@ export default {
   theme: {
     extend: {
       
+    fontSize: {
+      'xxs': '.625rem',
+    },
     },
   },
   plugins: [],

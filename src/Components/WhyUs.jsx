@@ -5,7 +5,7 @@ import smile from "../assets/face-happy.svg"
 import award from "../assets/award-05.svg"
 function WhyUs() {
     return (
-        <div className='grid grid-rows-[35%,35%,35%] overflow-hidden md:grid-cols-[27%,46%,27%] px-5 xl:px-[70px] py-[80px] sm:pb-[80px]'>   
+        <div id="WhyUs" className='grid grid-rows-[35%,35%,35%] overflow-hidden md:grid-cols-[27%,46%,27%] px-5 xl:px-[70px] py-[80px] sm:pb-[80px]'>   
             <div className="mt-4 flex   md:hidden items-center justify-center flex-col">  
                   <h1 className=" text-lg tracking-widest font-bold mb-5 text-center Atvik-Regular whitespace-break-spaces ">W H Y   U S</h1>
             <div className="text-4xl px-2 md:text-5xl font-semibold  text-center Atvik-Regular " >Lorem ipsum dolor sit amet, consectetur</div>

@@ -55,7 +55,7 @@ const images = [
       ],
   };
 function Gallery(){
-    return(<div className="px-6 lg:px-[70px] py-[80px] bg-white   text-[#211E1D] bg-gradient-to-r from-[#F6C0A90D] to-[#EB9ABA0D]">
+    return(<div id="Gallery" className="px-6 lg:px-[70px] py-[80px] bg-white   text-[#211E1D] bg-gradient-to-r from-[#F6C0A90D] to-[#EB9ABA0D]">
     <div className="flex flex-col gap-2">
         <pre className=" text-base font-bold text-left mb-2">G A L L E R Y</pre>
         <p className="text-3xl lg:text-5xl font-semibold tracking-wide text-left mb-3 lg:max-w-[50%]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
