@@ -5,7 +5,7 @@ export default function PriceCard({type, autofocus=false}) {
 
     let deets = {
         'Gold': {
-            'bgcolor': 'focus-within:bg-[#E9AE16]',
+            'bgcolor': ['focus-within:bg-[#E9AE16]', 'group-focus-within:bg-[#E9AE16]'],
             'textcolor': 'group-focus-within:text-[#E9AE16]',
             'bordercolor': 'group-focus-within:border-[#E9AE16]',
             1: 10500,
@@ -13,7 +13,7 @@ export default function PriceCard({type, autofocus=false}) {
             6: 8925,
         },
         'Silver': {
-            'bgcolor': 'focus-within:bg-[#211E1D]',
+            'bgcolor': ['focus-within:bg-[#211E1D]','group-focus-within:bg-[#211E1D]'],
             'textcolor': 'group-focus-within:text-[#211E1D]',
             'bordercolor': 'group-focus-within:border-[#211E1D]',
             1: 9500,
@@ -21,7 +21,7 @@ export default function PriceCard({type, autofocus=false}) {
             6: 7650,
         },
         'Bronze': {
-            'bgcolor': 'focus-within:bg-[#CD7F32]',
+            'bgcolor': ['focus-within:bg-[#CD7F32]', 'group-focus-within:bg-[#CD7F32]'],
             'textcolor': 'group-focus-within:text-[#CD7F32]',
             'bordercolor': 'group-focus-within:border-[#CD7F32]',   
             1: 8500,
@@ -34,16 +34,16 @@ export default function PriceCard({type, autofocus=false}) {
     let buttonstyle = type === 'Gold' ? 'focus:bg-[#E9AE16] focus:bg-opacity-10' : 
                       type === 'Silver'? 'focus:bg-[#211E1D] focus:bg-opacity-10' : 
                       'focus:bg-[#CD7F32] focus:bg-opacity-10'
-    let buttonst = `flex text-xs items-center border-2 justify-center border-[1px] 
+    let buttonst = `flex text-xs items-center outline-0 border-2 justify-center border-[1px] 
                       group-focus-within:border-opacity-30 focus:border-2
                       ${deets[type]['bordercolor']} border-[#6262624D] 
                       font-semibold py-1 max-sm:pt-2 flex-1 mr-1 rounded-md text-[#626262] 
                       ${deets[type]['textcolor']} ${buttonstyle}`
   return (
     <div className={`w-full group flex flex-col overflow-hidden rounded-xl p-0.5 bg-[#D4D4D4]
-     ${deets[type]['bgcolor']}`}>
+     ${deets[type]['bgcolor'][0]}`}>
         <div className={`text-white group-focus-within:relative absolute font-semibold flex 
-            flex-row text-center justify-center rounded-t-xl  ${deets[type]['bgcolor']}`}>
+            flex-row text-center justify-center rounded-t-xl  ${deets[type]['bgcolor'][1]}`}>
             Recommended For You
         </div>
         <div className='bg-white flex flex-col top-0 bottom-0 relative rounded-[10px]'>
@@ -55,7 +55,7 @@ export default function PriceCard({type, autofocus=false}) {
             </div>
             <div className='grid grid-flow-col grid-cols-3 grid-rows-2 text-center justify-between 
                 gap-x-2 gap-y-1 max-w-80'>
-                <button className={buttonst} autoFocus={autofocus}
+                <button className={buttonst}
                       onFocus={()=>{setMonth(1)}} onClick={()=>{setMonth(1)}}>1 MONTH</button>
                 <p></p>
                 <button className={buttonst} onFocus={()=>{setMonth(3)}}
@@ -77,7 +77,7 @@ export default function PriceCard({type, autofocus=false}) {
                         ₹{deets[type][1]*month}</span></p>
                 </div>
                 <button className={`text-white font-semibold flex min-h-12 justify-center items-center 
-                    px-4 rounded-md group-${deets[type]['bgcolor']}`}>Purchase Plan</button>
+                    px-4 rounded-md ${deets[type]['bgcolor'][1]}`}>Purchase Plan</button>
             </div>
         </div>
     </div>

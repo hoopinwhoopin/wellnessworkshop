@@ -19,7 +19,7 @@ export default function PriceCategory() {
     ]
 
   return (
-    <div className='bg-white flex flex-col max-md:p-[7%] py-20'>
+    <div id="PriceCategory" className='bg-white flex flex-col max-md:p-[7%] py-20'>
         <div className='bg-white flex flex-col flex-grow items-center justify-center text-center pt-8 p-3'>
             <p className='font-semibold text-xs lg:text-base whitespace-break-spaces'>W H A T   W E   O F F E R</p>
             <p className='font-semibold text-3xl lg:text-5xl py-10'>Choose your Transformation Package</p>

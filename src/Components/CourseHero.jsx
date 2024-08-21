@@ -1,13 +1,13 @@
 
 import Vector from "../assets/Vector2.svg"
 import dude from "../assets/image 1.png"
-import scrolldown from "../assets/Scroll Down.svg"
+import scrolldown2 from "../assets/Scroll Down.svg"
 import AktivGrotesk from '../Fonts/AktivGrotesk-Medium.ttf'
 import check from "../assets/check.svg"
 
 function CourseHero() {
     return (
-        <div className="hero-section h-full pt-7 bg-gradient-to-r from-[#FFFFFF00] to-[#F5753B0D] flex flex-col">
+        <div className="max-sm:mt-20 hero-section h-full pt-7 bg-gradient-to-r from-[#FFFFFF00] to-[#F5753B0D] flex flex-col">
             <div id="Hero" className=" flex md:grid md:grid-cols-[55%,1fr] flex-col flex-1 relative sm:pl-7">
             <div className="flex flex-col  pl-[7%] lg:pt-[10%] items-left">
                 <p className="font-semibold text-[#C94277] whitespace-break-spaces text-base">O N L I N E   P A C K A G E S</p>
@@ -27,7 +27,7 @@ function CourseHero() {
                     </div>
                     
                 </div>
-                <div className="flex max-md:flex-col flex-row mt-5 w-[70%]  justify-between">
+                <div className="flex max-md:flex-col flex-row mt-5 w-[70%] gap-x-4 ">
                         <p className=" bg-[#C94277] text-white font-semibold w-fit rounded-md text-xs py-[6px] my-1 px-4 tracking-wider">10+ COACHES</p>
                         <p className=" bg-[#C94277] text-white font-semibold w-fit rounded-md text-xs py-[6px] my-1 px-4 tracking-wider">200+ 5 STAR REVIEW   </p>
                         <p className=" bg-[#C94277] text-white font-semibold w-fit rounded-md text-xs py-[6px] my-1 px-4 tracking-wider">1000+ TRANSFORMATIONS</p>
@@ -37,7 +37,7 @@ function CourseHero() {
                 <img className="absolute lg::top-[10%]  -z-10 -bottom-8 right-0"  alt="Vector"  src={Vector}/>
                 <img className="lg:h-[75%]  w-[75%] mt-auto" alt="dude" src={dude} />
             </div>
-            <img className="absolute bottom-[32px] ml-[5%]" alt="scrolldown" src={scrolldown} />
+            <img className="absolute bottom-[32px] ml-[5%]" alt="scrolldown2" src={scrolldown2} />
             </div>
         </div>
     )

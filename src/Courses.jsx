@@ -7,7 +7,7 @@ import PriceCategory from './Components/PriceCategory'
 
 export default function Courses() {
   return (
-    <div>
+    <div className='overscroll-none'>
         <CourseHero/>
         <PriceCategory/>
         <Marquee page='courses'/>
