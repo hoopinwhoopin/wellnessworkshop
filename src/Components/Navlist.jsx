@@ -38,7 +38,7 @@ export default function Navlist({callback}) {
   };
 
   return (
-    <div className='flex-col lg:flex-row flex gap-8 lg:gap-14 w-[100vw] lg:w-fit p-[7%] lg:p-0 mt-16 lg:mt-0'>
+    <div className='flex-col lg:flex-row flex gap-6 lg:gap-12 w-[100vw] lg:w-fit p-[7%] lg:p-0 mt-16 lg:mt-0'>
         <StyledButton onClick={()=>{callback(false)}} href="/#Home" className='font-semibold text-xl max-md:text-3xl w-fit'>Home</StyledButton>
     <StyledButton onClick={()=>{callback(false)}} href="/#AboutUs" className='font-semibold text-xl max-md:text-3xl w-fit'>About Us</StyledButton>
     <StyledButton onClick={()=>{callback(false)}} href="/#WhyUs" className='font-semibold text-xl max-md:text-3xl w-fit'>Why Us</StyledButton>
@@ -65,7 +65,7 @@ export default function Navlist({callback}) {
       MenuListProps={{onMouseLeave:handleClose}}
       
       >
-        <MenuItem onClick={handleClose}><StyledButton className='text-base max-md:text-2xl text-[#626262] -mb-1 font-medium ' href="/courses#Hero" >Online</StyledButton></MenuItem>
+        <MenuItem onClick={handleClose}><StyledButton className='text-base max-md:text-2xl text-[#626262] -mb-1 font-medium ' href="/Courses#Hero" >Online</StyledButton></MenuItem>
         <MenuItem onClick={handleClose}><StyledButton className='text-base max-md:text-2xl text-[#626262] -mb-1 font-medium'>Offline</StyledButton></MenuItem>
         <MenuItem onClick={handleClose}><StyledButton className='text-base max-md:text-2xl text-[#626262] -mb-1 font-medium'>Consultation</StyledButton></MenuItem>
         <MenuItem onClick={handleClose}><StyledButton className='text-base max-md:text-2xl text-[#626262] font-medium'>1 on 1 Sessions</StyledButton></MenuItem>
