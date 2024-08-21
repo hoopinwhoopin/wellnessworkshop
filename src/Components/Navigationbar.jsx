@@ -21,7 +21,7 @@ function Navigationbar() {
         <button className="flex flex-1"><img onClick={()=>{setOpen(!open);}} src={open? x_circle:dots} alt="cross"/></button>
         <img className="h-1/2 m-3" src={logo_small} alt="logo" />
       </div>
-      <button className="navbar__logo flex-1 flex items-center align-middle ">
+      <button className="navbar__logo flex-1 hidden sm:flex items-center align-middle ">
         <img className="hidden sm:block" src={logo} alt="logo" />
       </button>
       <button className="pink px-4 py-2 sm:px-8 sm:py-4 rounded-lg text-base text-white">Get in Touch</button>
