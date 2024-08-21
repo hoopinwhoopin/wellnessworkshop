@@ -6,7 +6,7 @@ import Footer from './Components/Footer';
 import App from './App';
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Courses from './courses';
+import Courses from './Courses';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
