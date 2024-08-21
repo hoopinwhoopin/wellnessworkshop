@@ -24,7 +24,7 @@
 
 
 .radialbg {
-  background-image: url("./assets/image\ 2.svg");
+  background-image: url("./assets/image2.svg");
   background: radial-gradient(circle at bottom, #C942771A , #F4743B00);
 }
 
