@@ -4,7 +4,7 @@ import quotes from '../assets/Quotes.svg';
 import VideoImg from '../assets/Demo_Video.svg';
 function AboutUsTestimonial(){
     return(
-        <div>
+        <div id='AboutUs'>
         <div className="about-us-testimonial bg-white  px-[4%] py-[80px]  sm:grid sm:grid-cols-[30%,70%] border-[1px] border-[#D4D4D4]">
             <div className="flex flex-col md:justify-center px-5">
                 <div className="flex gap-3 justify-start items-start align-top w-1/2">
