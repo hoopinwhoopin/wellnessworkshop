@@ -39,11 +39,11 @@ export default function Navlist({callback}) {
 
   return (
     <div className='flex-col lg:flex-row flex gap-6 lg:gap-12 w-[100vw] lg:w-fit p-[7%] lg:p-0 mt-16 lg:mt-0'>
-        <StyledButton onClick={()=>{callback(false)}} href="/#Home" className='font-semibold text-base max-md:text-3xl w-fit'>Home</StyledButton>
-    <StyledButton onClick={()=>{callback(false)}} href="/#AboutUs" className='font-semibold text-base max-md:text-3xl w-fit'>About Us</StyledButton>
-    <StyledButton onClick={()=>{callback(false)}} href="/#WhyUs" className='font-semibold text-base max-md:text-3xl w-fit'>Why Us</StyledButton>
-    <StyledButton onClick={()=>{callback(false)}} href="/#Gallery" className='font-semibold text-base max-md:text-3xl w-fit'>Gallery</StyledButton>
-    <StyledButton  onMouseOver={(e)=>{setAnchorEl(e.currentTarget)}} className='font-semibold text-base max-md:text-3xl h-full w-fit justify-between'><div className='flex flex-row whitespace-break-spaces items-center' style={{color:openMenu? "#C94277":"black"}}>Packages   <Icon openMenu={openMenu}/></div></StyledButton>
+        <StyledButton onClick={()=>{callback(false)}} href="/#Home" className='font-semibold text-nowrap text-base max-md:text-3xl w-fit'>Home</StyledButton>
+    <StyledButton onClick={()=>{callback(false)}} href="/#AboutUs" className='font-semibold text-nowrap text-base max-md:text-3xl w-fit'>About Us</StyledButton>
+    <StyledButton onClick={()=>{callback(false)}} href="/#WhyUs" className='font-semibold text-base text-nowrap max-md:text-3xl w-fit'>Why Us</StyledButton>
+    <StyledButton onClick={()=>{callback(false)}} href="/#Gallery" className='font-semibold text-nowrap text-base max-md:text-3xl w-fit'>Gallery</StyledButton>
+    <StyledButton  onMouseOver={(e)=>{setAnchorEl(e.currentTarget)}} className='font-semibold text-base text-nowrap max-md:text-3xl h-full w-fit justify-between'><div className='flex flex-row whitespace-break-spaces items-center' style={{color:openMenu? "#C94277":"black"}}>Packages   <Icon openMenu={openMenu}/></div></StyledButton>
     <Menu
       id="simple-menu"
       anchorEl={anchorEl}
