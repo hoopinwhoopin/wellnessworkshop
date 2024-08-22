@@ -5,7 +5,7 @@ import scrolldown2 from "../assets/Scroll Down.svg"
 import AktivGrotesk from '../Fonts/AktivGrotesk-Medium.ttf'
 function HeroSection() {
     return (
-        <div className="hero-section h-full mt-10 pt-7 bg-gradient-to-r from-[#FFFFFF00] to-[#F5753B0D] flex flex-col">
+        <div className="hero-section h-full max-sm:mt-10 pt-7 bg-gradient-to-r from-[#FFFFFF00] to-[#F5753B0D] flex flex-col">
             <div id="Hero" className=" flex md:grid md:grid-cols-[55%,1fr] flex-col flex-1 relative sm:pl-7">
             <div className="flex flex-col justify-center px-[7%] items-left">
                 <h1 style={{fontFamily:{AktivGrotesk}}} className="text-5xl flex flex-row flex-wrap font-semibold max-sm:pr-5 mt-10 lg:text-7xl  text-left text-[#000] text-wrap whitespace-nowrap"><span >Start Training Today with a <span className="pinkcolor whitespace-nowrap">Lifestyle</span> <span className="pinkcolor whitespace-break-spaces">Change</span></span></h1>
