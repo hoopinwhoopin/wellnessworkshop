@@ -1,5 +1,5 @@
 {
-  "rewrites": [
+  "routes": [
     { "src": "/", "dest": "/" },
     { "src": "/Packages", "dest": "/" }
   ]
