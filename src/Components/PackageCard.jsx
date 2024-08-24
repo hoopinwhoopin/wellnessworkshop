@@ -4,7 +4,7 @@ import AG from '../Fonts/AktivGrotesk-Regular.otf'
 
 export default function PackageCard({type, title, image, guide, weeks, level , desc,guideimg}) {
   return (
-    <div className='rounded-lg max-sm:min-w-[95vw] lg:min-w-[30vw] flex flex-col mx-2 overflow-hidden'>
+    <div className='rounded-lg max-sm:min-w-[95vw] md:min-w-[30vw] flex flex-col mx-2 overflow-hidden'>
         <div className='relative flex flex-row h-fit'>
             <div className='bg-[#ffffff] flex justify-center items-center rounded-[4px] mx-5 mt-4 absolute bg-opacity-95'>
             <h3 className='bg-[#C94277]  px-4 py-[6px] pt-[8px] bg-opacity-15  text-[#C94277] font-semibold text-xs'>{type}</h3>

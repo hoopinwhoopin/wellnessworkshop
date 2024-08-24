@@ -51,15 +51,16 @@ export default function Packages() {
    ] 
    const [scrollp,setScrollp]=useState()
    const myRef = useRef(null)
-   
-  //  useEffect(() => {
-  //   setScrollp(`${ myRef.current.scrollLeft/myRef.current.scrollWidth*500}%`);
-  //   myRef.current.addEventListener('scroll',()=>{
-  //     setScrollp(`${myRef.current.scrollLeft/myRef.current.scrollWidth*500}%`)
-  //   })
-   
-  //  },
-  //  [0||myRef.current.scrollLeft]);
+   const barRef = useRef(null)
+   const [scrolls, setScrolls] = useState(0);
+   useEffect(() => {
+     setScrollp(`${ (myRef.current.scrollLeft+myRef.current.scrollLeft/CardData.length)/myRef.current.scrollWidth*myRef.current.clientWidth}%`);
+     
+     myRef.current.addEventListener('scroll',()=>{
+      setScrollp(`${(myRef.current.scrollLeft+myRef.current.scrollLeft/CardData.length)/myRef.current.scrollWidth*myRef.current.clientWidth}%`)
+    })
+   },
+   [scrolls]);
    return (
     <div className='bg-white'>
     <div className='radialbg py-14 pl-[4%]  lg:py-20 '>
@@ -77,12 +78,12 @@ export default function Packages() {
         }
         </div >
         <div className='flex flex-row items-center justify-between mt-5 p-8'>
-        <div  className='h-1  rounded-full bg-[#D4D4D4] mx-8 w-[80%] max-w-60'>
+        <div ref={barRef}  className='h-1  rounded-full bg-[#D4D4D4] mx-8 w-60'>
           <div  style={{transform:`translateX(${scrollp})`,transition:'ease-in-out'}} className='h-1 bg-[#C94277] w-[20%]' ></div>
         </div>
         <div className='flex flex-nowrap'> 
-          <button id='left' onClick={()=>{myRef.current.scrollLeft>0? myRef.current.scrollLeft -= 50:""  }} className='focus:text-black text-[#626262] font-semibold mx-2 text-2xl'>{'<'}</button>
-          <button id='right' onClick={()=>{myRef.current.scrollLeft<myRef.current.scrollWidth? myRef.current.scrollLeft+=50:"" }} className='focus:text-black text-[#626262] font-semibold mx-2 text-2xl'>{'>'}</button>
+          <button id='left' onClick={()=>{myRef.current.scrollLeft>0? myRef.current.scrollLeft -= 200:"";setScrolls(myRef.current.scrollLeft)  }} className='focus:text-black text-[#626262] font-semibold mx-2 text-2xl'>{'<'}</button>
+          <button id='right' onClick={()=>{myRef.current.scrollLeft<myRef.current.scrollWidth? myRef.current.scrollLeft+=200:"";setScrolls(myRef.current.scrollLeft) }} className='focus:text-black text-[#626262] font-semibold mx-2 text-2xl'>{'>'}</button>
         </div>
         </div>
     </div>
