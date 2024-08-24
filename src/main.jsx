@@ -10,13 +10,13 @@ import Courses from './Courses';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-  <Navigationbar/>
     <BrowserRouter>
+  <Navigationbar/>
     <Routes>
       <Route path="/Packages" element={<App />} />
       <Route path="/" element={<Courses />} />
     </Routes>
-    </BrowserRouter>
   <Footer/>
+    </BrowserRouter>
   </React.StrictMode>,
 )
