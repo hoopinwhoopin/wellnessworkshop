@@ -2,7 +2,7 @@ import React from 'react'
 import Icon from '../assets/Icon.jsx'
 import { Menu, MenuItem, styled, useMediaQuery } from "@mui/material";
 import { useState } from "react";
-
+import Aktiv from '../assets/AktivGrotesk-Regular.ttf'
 
 
 const StyledButton = styled('a')({
@@ -10,6 +10,7 @@ const StyledButton = styled('a')({
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
+    fontFamily: {Aktiv},
     "::after": {
       content: "''",
       display: "flex",

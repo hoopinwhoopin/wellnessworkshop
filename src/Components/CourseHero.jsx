@@ -11,7 +11,7 @@ function CourseHero() {
             <div id="Hero" className=" flex md:grid md:grid-cols-[55%,1fr] flex-col flex-1 relative sm:pl-7">
             <div className="flex flex-col  pl-[7%] lg:pt-[10%] items-left">
                 <p className="font-semibold text-[#C94277] whitespace-break-spaces text-base">O N L I N E   P A C K A G E S</p>
-                <h1 style={{fontFamily:{AktivGrotesk}}} className="text-2xl flex flex-row flex-wrap font-semibold max-sm:pr-5 mt-5 lg:text-4xl  text-left text-[#000] text-wrap whitespace-nowrap">Lose weight, bulk up, get healthy. Whatever your fitness goals, we got you covered</h1>
+                <h1 style={{fontFamily:{AktivGrotesk}}} className="text-2xl flex flex-row flex-wrap font-semibold max-sm:pr-5 mt-5 lg:text-4xl  text-left text-[#000] text-wrap whitespace-nowrap">Lose weight, bulk up, get healthy. Whatr your fitness goals, we got you covered</h1>
                 <div className="flex flex-col justify-around min-h-36 pt-5">
                     <div className="flex flex-row">
                         <img className="w-5 h-5" alt="check" src={check} />
@@ -28,9 +28,9 @@ function CourseHero() {
                     
                 </div>
                 <div className="flex max-md:flex-col flex-row mt-5 w-[70%] gap-x-4 ">
-                        <p className=" bg-[#C94277] text-white font-semibold w-fit rounded-md text-xs py-[6px] my-1 px-4 tracking-wider">10+ COACHES</p>
-                        <p className=" bg-[#C94277] text-white font-semibold w-fit rounded-md text-xs py-[6px] my-1 px-4 tracking-wider">200+ 5 STAR REVIEW   </p>
-                        <p className=" bg-[#C94277] text-white font-semibold w-fit rounded-md text-xs py-[6px] my-1 px-4 tracking-wider">1000+ TRANSFORMATIONS</p>
+                        <p className=" bg-[#C94277] text-white text-nowrap font-semibold w-fit rounded-md text-xs py-[6px] my-1 px-4 tracking-wider">10+ COACHES</p>
+                        <p className=" bg-[#C94277] text-white text-nowrap font-semibold w-fit rounded-md text-xs py-[6px] my-1 px-4 tracking-wider">200+ 5 STAR REVIEW   </p>
+                        <p className=" bg-[#C94277] text-white text-nowrap font-semibold w-fit rounded-md text-xs py-[6px] my-1 px-4 tracking-wider">1000+ TRANSFORMATIONS</p>
                     </div>
             </div>
             <div className="flex h-fit aspect-auto align-bottom max-sm:mt-5 justify-center items-center self-end bottom-0  relative">

@@ -13,8 +13,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <Navigationbar/>
     <BrowserRouter>
     <Routes>
-      <Route path="/" element={<App />} />
-      <Route path="/Packages" element={<Courses />} />
+      <Route path="/Packages" element={<App />} />
+      <Route path="/" element={<Courses />} />
     </Routes>
     </BrowserRouter>
   <Footer/>

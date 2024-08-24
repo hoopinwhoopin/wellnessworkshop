@@ -1,7 +1,8 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import workout from '../assets/Workout.svg'
 import PackageCard from './PackageCard'
 import guideimg from '../assets/guide.svg'
+import { useRef } from 'react'
 
 
 
@@ -49,35 +50,24 @@ export default function Packages() {
     },
    ] 
    const [scrollp,setScrollp]=useState()
-   let bar = document.getElementById('scrollp')
-  //  bar?.addEventListener('scroll',scroll)
-  //   bar?.addEventListener('touchmove',scroll)
-
-
-      useEffect(() => {
-        
-  function scroll(){
-    let scroll = bar.scrollLeft
-    let width = bar.scrollWidth
-    let view = bar.clientWidth
-    let scrollpercent = (scroll/(width-view))
-    setScrollp((scrollpercent-scrollpercent/5)*100+'%')
-   }   
-          bar?.addEventListener('scroll',scroll)
-          bar?.addEventListener('touchmove',scroll)
-        
-      }, [])
-    
-    
+   const myRef = useRef(null)
+   
+  //  useEffect(() => {
+  //   setScrollp(`${ myRef.current.scrollLeft/myRef.current.scrollWidth*500}%`);
+  //   myRef.current.addEventListener('scroll',()=>{
+  //     setScrollp(`${myRef.current.scrollLeft/myRef.current.scrollWidth*500}%`)
+  //   })
+   
+  //  },
+  //  [0||myRef.current.scrollLeft]);
    return (
     <div className='bg-white'>
-
     <div className='radialbg py-14 pl-[4%]  lg:py-20 '>
         <div className="flex mb-14  lg:mb-20  flex-col items-center">
             <h2 className='whitespace-break-spaces text-xs font-semibold text-black lg:text-sm'>L O R E M   I P S U M</h2>
             <p className=' text-3xl lg:text-4xl font-semibold mt-5'>Packages here</p>
         </div>
-        <div id='scrollp' className=' scroll-smooth flex flex-row overflow-x-scroll will-change-scroll px-1 no-scrollbar '>
+        <div ref={myRef} className=' scroll-smooth cursor-all-scroll flex flex-row overflow-x-scroll px-1 no-scrollbar '>
         {
           CardData.map((data,index) => {
             return (
@@ -85,11 +75,16 @@ export default function Packages() {
             )
           })
         }
+        </div >
+        <div className='flex flex-row items-center justify-between mt-5 p-8'>
+        <div  className='h-1  rounded-full bg-[#D4D4D4] mx-8 w-[80%] max-w-60'>
+          <div  style={{transform:`translateX(${scrollp})`,transition:'ease-in-out'}} className='h-1 bg-[#C94277] w-[20%]' ></div>
         </div>
-        <div  className='h-1 rounded-full bg-[#D4D4D4] mx-8 mt-5 max-w-60'>
-          <div  style={{marginLeft:scrollp}} className='h-1 bg-[#C94277] w-[20%]' ></div>
+        <div className='flex flex-nowrap'> 
+          <button id='left' onClick={()=>{myRef.current.scrollLeft>0? myRef.current.scrollLeft -= 50:""  }} className='focus:text-black text-[#626262] font-semibold mx-2 text-2xl'>{'<'}</button>
+          <button id='right' onClick={()=>{myRef.current.scrollLeft<myRef.current.scrollWidth? myRef.current.scrollLeft+=50:"" }} className='focus:text-black text-[#626262] font-semibold mx-2 text-2xl'>{'>'}</button>
         </div>
-        
+        </div>
     </div>
         </div>
   )
