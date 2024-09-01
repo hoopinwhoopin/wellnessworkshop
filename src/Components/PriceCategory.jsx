@@ -1,7 +1,13 @@
 import React from 'react'
 import check from '../assets/check-green.svg'
 import PriceCard from './PriceCard'
+import { useParams } from 'react-router-dom'
+import { useSearchParams } from 'react-router-dom';
+
 export default function PriceCategory() {
+    const [searchParams] = useSearchParams();
+    const page = searchParams.get('page') || "1_on_1_Training"; // Default to page 1
+
     let benefits = [
         'Pre-Assessment',
         'Nutrition Road Map',
@@ -26,9 +32,9 @@ export default function PriceCategory() {
         </div>
         <div className='flex flex-col lg:flex-row w-full items-center justify-center  max-md:flex-col'>
             <div className='flex flex-col w-[100%] flex-grow items-center justify-center gap-5 lg:px-16'>
-            <PriceCard type={'Gold'} autofocus={true}/>
-            <PriceCard type={'Silver'}/>
-            <PriceCard type={'Bronze'}/>
+            <PriceCard type={'Gold'} page={page}/>
+            <PriceCard type={'Silver'} page={page}/>
+            <PriceCard type={'Bronze'} page={page}/>
             </div>
             <div className='flex flex-col min-w-[50%] lg:border-l-2 my-7 lg:px-7 '>
                 <p className='text-3xl font-semibold m-3 tracking-wide'>What will you get in this plan?</p>

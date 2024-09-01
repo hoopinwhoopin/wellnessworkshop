@@ -4,13 +4,21 @@ import dude from "../assets/image 1.png"
 import scrolldown2 from "../assets/Scroll Down.svg"
 import AktivGrotesk from '../Fonts/AktivGrotesk-Medium.ttf'
 import check from "../assets/check.svg"
+import { useSearchParams } from "react-router-dom"
 
 function CourseHero() {
+    const [searchParams] = useSearchParams();
+    let page = searchParams.get('page') || "1 on 1 Session"; // Default to page 1
+    if (page == "1_on_1_Training") {
+        page = "1 on 1 Session"
+    }
+    page = page.toUpperCase().split('').join(' ')
+
     return (
         <div className="max-sm:mt-20 hero-section h-full pt-7 bg-gradient-to-r from-[#FFFFFF00] to-[#F5753B0D] flex flex-col">
             <div id="Hero" className=" flex md:grid md:grid-cols-[55%,1fr] flex-col flex-1 relative sm:pl-7">
             <div className="flex flex-col  pl-[7%] lg:pt-[10%] items-left">
-                <p className="font-semibold text-[#C94277] whitespace-break-spaces text-base">O N L I N E   P A C K A G E S</p>
+                <p className="font-semibold text-[#C94277] whitespace-break-spaces text-base">{page}   P A C K A G E S</p>
                 <h1 style={{fontFamily:{AktivGrotesk}}} className="text-2xl flex flex-row flex-wrap font-semibold max-sm:pr-5 mt-5 lg:text-4xl  text-left text-[#000] text-wrap whitespace-nowrap">Lose weight, bulk up, get healthy. Whatr your fitness goals, we got you covered</h1>
                 <div className="flex flex-col justify-around min-h-36 pt-5">
                     <div className="flex flex-row">

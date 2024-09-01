@@ -23,7 +23,7 @@ function AboutUsTestimonial(){
         <div className='flex flex-col px-5 md:grid bg-white md:grid-cols-[40%,60%] md:p-[5%] py-[80px]'>
             <div className='flex flex-col p-2 justify-center'>
                 <p className='max-lg:text-3xl text-5xl font-medium text-left'>Lorem ipsum dolor sit amet, consectetur </p>
-                <p className='max-lg:text-xl text-3xl leading-8 font-medium text-left mt-5'>Lorem ipsum dolor sit amet consectetur. Adipiscing fringilla porttitor duis hendrerit id.  </p>
+                <p className='max-lg:text-lg text-3xl leading-8 font-medium text-left mt-5'>Lorem ipsum dolor sit amet consectetur. Adipiscing fringilla porttitor duis hendrerit id.  </p>
                 <div className='flex flex-row max-sm:justify-center gap-7 mt-8'>
                     <div className=' bg-gradient-to-r from-[#C94277] to-[#F4743B] rounded-xl p-[3px]'>
                         <div className=' bg-white hehe px-4 lg:px-7 py-4'>   

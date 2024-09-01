@@ -31,8 +31,6 @@ const StyledButton = styled('a')({
 
 export default function Navlist({callback}) {
   const [anchorEl, setAnchorEl] = useState(null);
-  const [filling,setFilling] = useState('#626262')
-  const [w,setW] = useState('0')
   const openMenu = Boolean(anchorEl);
   const handleClose = () => {
     setAnchorEl(null);
@@ -71,10 +69,10 @@ export default function Navlist({callback}) {
       MenuListProps={{onMouseLeave:handleClose}}
       
       >
-        <MenuItem onClick={handleClose}><StyledButton className='text-base max-md:text-2xl text-[#626262] -mb-1 font-medium ' href="/Packages" >Online</StyledButton></MenuItem>
-        <MenuItem onClick={handleClose}><StyledButton className='text-base max-md:text-2xl text-[#626262] -mb-1 font-medium'>Offline</StyledButton></MenuItem>
-        <MenuItem onClick={handleClose}><StyledButton className='text-base max-md:text-2xl text-[#626262] -mb-1 font-medium'>Consultation</StyledButton></MenuItem>
-        <MenuItem onClick={handleClose}><StyledButton className='text-base max-md:text-2xl text-[#626262] font-medium'>1 on 1 Sessions</StyledButton></MenuItem>
+        <MenuItem onClick={handleClose}><StyledButton className='text-base max-md:text-2xl text-[#626262] -mb-1 font-medium ' href="/Packages?page=Online" >Online</StyledButton></MenuItem>
+        <MenuItem onClick={handleClose}><StyledButton className='text-base max-md:text-2xl text-[#626262] -mb-1 font-medium' href="/Packages?page=Offline"  >Offline</StyledButton></MenuItem>
+        <MenuItem onClick={handleClose}><StyledButton className='text-base max-md:text-2xl text-[#626262] -mb-1 font-medium'  href="/Packages?page=Consultancy">Consultation</StyledButton></MenuItem>
+        <MenuItem onClick={handleClose}><StyledButton className='text-base max-md:text-2xl text-[#626262] font-medium'  href="/Packages?page=1_on_1_Training">1 on 1 Sessions</StyledButton></MenuItem>
       </Menu>
       </div>
   )

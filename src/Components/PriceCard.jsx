@@ -1,32 +1,59 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import check from '../assets/check.svg'
-export default function PriceCard({type, autofocus=false}) {
+import createClient from '../client';
+export default function PriceCard({type,page, autofocus=false}) {
     const [month, setMonth] = useState(1)
-
+    const [prices, setPrices] = useState({Gold: {"Months_1":10500,"Months_3":90,"Months_6":101 }, Silver: {"Months_1":10500,"Months_3":90,"Months_6":101 }, Bronze: {"Months_1":10500,"Months_3":90,"Months_6":101 }})
+    useEffect(() => { 
+		createClient
+			.fetch(
+				`*[_type == "${page}"]{
+                Gold{
+                    Months_1,
+                    Months_3,
+                    Months_6,
+                },
+                Silver{
+                    Months_1,
+                    Months_3,
+                    Months_6,
+                },
+                Bronze{
+                    Months_1,
+                    Months_3,
+                    Months_6,
+                },
+    }`
+			)
+			.then((data) => setPrices(data[0]))
+            .catch(console.error);
+            console.log(prices)
+	}, []);
     let deets = {
+
         'Gold': {
             'bgcolor': ['focus-within:bg-[#E9AE16]', 'group-focus-within:bg-[#E9AE16]'],
             'textcolor': 'group-focus-within:text-[#E9AE16]',
             'bordercolor': 'group-focus-within:border-[#E9AE16]',
-            1: 10500,
-            3: 9450,
-            6: 8925,
+            1: prices.Gold.Months_1,
+            3: prices.Gold.Months_3,
+            6: prices.Gold.Months_6,
         },
         'Silver': {
             'bgcolor': ['focus-within:bg-[#211E1D]','group-focus-within:bg-[#211E1D]'],
             'textcolor': 'group-focus-within:text-[#211E1D]',
             'bordercolor': 'group-focus-within:border-[#211E1D]',
-            1: 9500,
-            3: 8300,
-            6: 7650,
+            1: prices.Silver.Months_1,
+            3: prices.Silver.Months_3,
+            6: prices.Silver.Months_6,
         },
         'Bronze': {
             'bgcolor': ['focus-within:bg-[#CD7F32]', 'group-focus-within:bg-[#CD7F32]'],
             'textcolor': 'group-focus-within:text-[#CD7F32]',
             'bordercolor': 'group-focus-within:border-[#CD7F32]',   
-            1: 8500,
-            3: 7500,
-            6: 7000,
+            1: prices.Bronze.Months_1,
+            3: prices.Bronze.Months_3,
+            6: prices.Bronze.Months_6,
         }
         
     }

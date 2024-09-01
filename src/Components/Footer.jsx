@@ -4,7 +4,7 @@ import footv from '../assets/footerC.svg'
 function Footer() {
   return (
     <div>
-    <div className='flex bg-[#211E1D] flex-col lg:flex-row justify-between pt-20 p-12'>
+    <div className='flex bg-[#211E1D] flex-col lg:flex-row justify-between pt-20 z-10 p-12'>
         <div className='md:w-[24vw] mb-8 flex flex-col'>
         <img className='aspect-auto w-[90%]' src={logo} alt='logo'/>
         <div className='flex text-lg flex-wrap text-white mt-14'>
