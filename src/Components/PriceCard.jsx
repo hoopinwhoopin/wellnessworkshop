@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import check from '../assets/check.svg'
 import createClient from '../client';
-export default function PriceCard({type,page, autofocus=false}) {
+import { Router, useHref, useNavigate, useNavigation, useRoutes, useSearchParams } from 'react-router-dom';
+export default function PriceCard({type,page,benefs, autofocus=false}) {
     const [month, setMonth] = useState(1)
-    const [prices, setPrices] = useState({Gold: {"Months_1":10500,"Months_3":90,"Months_6":101 }, Silver: {"Months_1":10500,"Months_3":90,"Months_6":101 }, Bronze: {"Months_1":10500,"Months_3":90,"Months_6":101 }})
+    const [prices, setPrices] = useState({Gold: {"Months_1":10500,"Months_3":90,"Months_6":101 }, Silver: {"Months_1":10500,"Months_3":90,"Months_6":101 }, Bronze: {"Months_1":10500,"Months_3":90,"Months_6":101 }, PDFfile: {asset: {url: ""}}})
     useEffect(() => { 
 		createClient
 			.fetch(
@@ -23,11 +24,14 @@ export default function PriceCard({type,page, autofocus=false}) {
                     Months_3,
                     Months_6,
                 },
+                PDFfile{
+                asset->{
+                    url
+                }}
     }`
 			)
-			.then((data) => setPrices(data[0]))
+			.then((data) => {setPrices(data[0]),console.log(data[0])})
             .catch(console.error);
-            console.log(prices)
 	}, []);
     let deets = {
 
@@ -83,12 +87,13 @@ export default function PriceCard({type,page, autofocus=false}) {
             <div className='grid grid-flow-col grid-cols-3 grid-rows-2 text-center justify-between 
                 gap-x-2 gap-y-1 max-w-80'>
                 <button className={buttonst}
-                      onFocus={()=>{setMonth(1)}} onClick={()=>{setMonth(1)}}>1 MONTH</button>
+    
+    onFocus={()=>{setMonth(1),benefs(type)} } onClick={()=>{setMonth(1)}} >1 MONTH</button>
                 <p></p>
-                <button className={buttonst} onFocus={()=>{setMonth(3)}}
+                <button className={buttonst} onFocus={()=>{setMonth(3),benefs(type)} }
                       onClick={()=>{setMonth(3)}} >3 MONTHS</button>
                 <p className='text-xxs tracking-wider font-semibold text-[#3AA342]'>SAVE 10%</p>
-                <button className={buttonst} onFocus={()=>{setMonth(6)}} 
+                <button className={buttonst} onFocus={()=>{setMonth(6),benefs(type)} } 
                      onClick={()=>{setMonth(6)}}>6 MONTHS</button>
                 <p className='text-xxs tracking-wider font-semibold text-[#3AA342]'>SAVE 15%</p>
             </div>
@@ -103,8 +108,8 @@ export default function PriceCard({type,page, autofocus=false}) {
                     ₹{deets[type][month]*month}<span className='line-through decoration-1 ml-1'>
                         ₹{deets[type][1]*month}</span></p>
                 </div>
-                <button className={`text-white font-semibold flex min-h-12 justify-center items-center 
-                    px-4 rounded-md ${deets[type]['bgcolor'][1]}`}>Purchase Plan</button>
+                <a href={prices.PDFfile.asset.url} className={`text-white font-semibold flex min-h-12 justify-center items-center 
+                    px-4 rounded-md ${deets[type]['bgcolor'][1]}`}>Learn More</a>
             </div>
         </div>
     </div>

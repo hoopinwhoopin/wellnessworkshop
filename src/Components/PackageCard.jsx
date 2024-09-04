@@ -24,7 +24,7 @@ export default function PackageCard({type, title, image, guide, weeks, level , d
             <div className=' overflow-ellipsis text-wrap flex'>
             <p style={{fontFamily:AG}} className='text-lg text-ellipsis h- line-clamp-3'>{desc}</p>
             </div>
-            <button className='bg-[#C94277] w-fit text-white my-4 p-5 px-7 rounded-lg'>Read More</button>
+            <a href={`/Packages?page=${title.split(' ').join('_')}`} className='bg-[#C94277] w-fit text-white my-4 p-5 px-7 rounded-lg'>Read More</a>
         </div>
     </div>
   )

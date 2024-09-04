@@ -3,61 +3,48 @@ import workout from '../assets/Workout.svg'
 import PackageCard from './PackageCard'
 import guideimg from '../assets/guide.svg'
 import { useRef } from 'react'
+import createClient from '../client'
 
 
 
 export default function Packages() {
-  let CardData = [
-    {
-      type: 'STRENGTH',
-      guide: 'Kelvin',
-      guideimg: guideimg,
-      level: 'EXPERT',
-      weeks: '12 WEEKS',
-      image: workout,
-      title: 'Online',
-      desc: 'Lorem ipsum dolor sit amet consectetur. Erat praesent sollicitudin odio ullamcorper. A mattis dictumst id volutpat fringilla vulputate. Aenean ultrices neque risus nunc accumsan dolor sit aliquam dui. Donec diam arcu orci in lectus ligula urna nisl massa.'
-    },
-    {
-      type: 'STRENGTH',
-      guide: 'Kelvin',
-      guideimg: guideimg,
-      level: 'EXPERT',
-      weeks: '12 WEEKS',
-      image: workout,
-      title: 'Offline',
-      desc: 'Lorem ipsum dolor sit amet consectetur. Erat praesent sollicitudin odio ullamcorper. A mattis dictumst id volutpat fringilla vulputate. Aenean ultrices neque risus nunc accumsan dolor sit aliquam dui. Donec diam arcu orci in lectus ligula urna nisl massa.'
-    },
-    {
-      type: 'STRENGTH',
-      guide: 'Kelvin',
-      guideimg: guideimg,
-      level: 'EXPERT',
-      weeks: '12 WEEKS',
-      image: workout,
-      title: 'Consultancy',
-      desc: 'Lorem ipsum dolor sit amet consectetur. Erat praesent sollicitudin odio ullamcorper. A mattis dictumst id volutpat fringilla vulputate. Aenean ultrices neque risus nunc accumsan dolor sit aliquam dui. Donec diam arcu orci in lectus ligula urna nisl massa.'
-    },
-    {
-      type: 'STRENGTH',
-      guide: 'Kelvin',
-      guideimg: guideimg,
-      level: 'EXPERT',
-      weeks: '12 WEEKS',
-      image: workout,
-      title: '1-1 Training',
-      desc: 'Lorem ipsum dolor sit amet consectetur. Erat praesent sollicitudin odio ullamcorper. A mattis dictumst id volutpat fringilla vulputate. Aenean ultrices neque risus nunc accumsan dolor sit aliquam dui. Donec diam arcu orci in lectus ligula urna nisl massa.'
-    },
-   ] 
+  const [data, setData] = useState([{title:"",type:"",guide:"",guideimg:{asset:{url:""}},level:"",weeks:"",image:{asset:{url:""}},desc:""}])
+  useEffect(() => { 
+		createClient
+			.fetch(
+				`*[_type == "Packages"]{
+                title,
+                type,
+                guide,
+                guideimg{
+                asset->{
+                _id,
+                url
+                }
+                },
+                level,
+                weeks,
+                image{
+                asset->{
+                _id,
+                url
+                }
+                },
+                desc
+    }`
+			)
+			.then((data) => {setData(data)})
+            .catch(console.error);
+	}, []);
    const [scrollp,setScrollp]=useState()
    const myRef = useRef(null)
    const barRef = useRef(null)
    const [scrolls, setScrolls] = useState(0);
    useEffect(() => {
-     setScrollp(`${ (myRef.current.scrollLeft+myRef.current.scrollLeft/CardData.length)/myRef.current.scrollWidth*myRef.current.clientWidth}%`);
+     setScrollp(`${ (myRef.current.scrollLeft+myRef.current.scrollLeft/(data.length-1))/myRef.current.scrollWidth*myRef.current.clientWidth}%`);
      
      myRef.current.addEventListener('scroll',()=>{
-      setScrollp(`${(myRef.current.scrollLeft+myRef.current.scrollLeft/CardData.length)/myRef.current.scrollWidth*myRef.current.clientWidth}%`)
+      setScrollp(`${(myRef.current.scrollLeft+myRef.current.scrollLeft/(data.length-1))/myRef.current.scrollWidth*myRef.current.clientWidth}%`)
     })
    },
    [scrolls]);
@@ -70,9 +57,9 @@ export default function Packages() {
         </div>
         <div ref={myRef} className=' scroll-smooth cursor-all-scroll flex flex-row overflow-x-scroll px-1 no-scrollbar '>
         {
-          CardData.map((data,index) => {
+          data.map((data,index) => {
             return (
-              <PackageCard key={index} type={data.type} guide={data.guide} guideimg={data.guideimg} level={data.level} weeks={data.weeks} image={data.image} title={data.title} desc={data.desc}/>
+              <PackageCard key={index} type={data.type} guide={data.guide} guideimg={data.guideimg.asset.url} level={data.level} weeks={data.weeks} image={data.image.asset.url} title={data.title} desc={data.desc}/>
             )
           })
         }

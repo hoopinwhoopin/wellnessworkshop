@@ -28,25 +28,18 @@ function Footer() {
                 <h1>Blogs</h1>
                 <h1>Terms & Conditions</h1>
             </div>
-            <div className='grid max-md:-mt-20'>
-                <div className='grid min-h-28 grid-rows-[28%,24%,24%]'>
+                <div className='grid min-h-52 grid-rows-[14%,12%,12%] max-md:-mt-20'>
                     <h1 className='text-white font-bold text-lg'>Legal</h1>
                     <h1>Privacy Policy</h1>
                     <h1>Sale Terms & Conditions</h1>
                 </div>
-                <div className='grid min-h-28 grid-rows-[28%,24%,24%]'>
-                    <h1 className='text-white font-bold text-lg'>Legal</h1>
-                    <h1>Privacy Policy</h1>
-                    <h1>Sale Terms & Conditions</h1>
-                </div>
-            </div>
         </div>
     <div className='md:hidden text-white mt-24'>
             <h3>getintouch@moseseffect.com</h3>
             <h3>All rights</h3>
         </div>
     </div>
-    <img className='-mt-1' src={footv} alt="" />
+    <img className='-mt-1 w-full' src={footv} alt="" />
     </div>
   )
 }

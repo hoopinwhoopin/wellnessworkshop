@@ -4,13 +4,25 @@ import x_circle from "../assets/x-circle-fill 1.svg";
 import dots from "../assets/dots.svg";
 import { Drawer } from "@mui/material";
 import Vector from "../assets/Vector \(1\).svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Navlist from "./Navlist";
+import createClient  from "../client";
 
 
 
 function Navigationbar() {
   const [open, setOpen] = useState(false);
+  const [data, setData] = useState({whatsapp_link:''})
+  useEffect(() => {
+    createClient
+      .fetch(
+        `*[_type == "JoinUs"]{
+                whatsapp_link
+    }`
+      )
+      .then((data) => {setData(data[0])})
+      .catch(console.error);
+  }, []);
   return (
     <div>
     <div className="navbar max-sm:fixed w-full top-0 flex Atvik-Regular font-medium backdrop-blur-sm bg-white bg-opacity-50 z-20  justify-around lg:py-8 lg:px-16 px-10 py-5">
@@ -25,7 +37,7 @@ function Navigationbar() {
         <img className="hidden sm:block" src={logo} alt="logo" />
       </button>
       <div className="flex flex-1 justify-end items-center">
-      <button className="pink px-4 py-2 sm:px-8 sm:py-4 rounded-lg text-base text-white">Get in Touch</button>
+      <a href={data.whatsapp_link} className="pink px-4 py-2 sm:px-8 sm:py-4 rounded-lg text-base text-white">Get in Touch</a>
       </div>
     </div>
     <Drawer open={open} 
