@@ -20,7 +20,6 @@ export default function Testimonials({page='home'}) {
 			)
 			.then((data) => setTestimonials(data))
             .catch(console.error);
-            console.log(testimonials)
 	}, []);
   return (
     <div className='flex bg-white flex-col justify-center items-center p-20 px-[9.5vw]'>

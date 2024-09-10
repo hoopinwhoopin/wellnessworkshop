@@ -11,9 +11,8 @@ function AboutUs2() {
                 text[]
     }`
 			)
-			.then((data) => {setData(data[0]),console.log(data[0])})
+			.then((data) => {setData(data[0])})
             .catch(console.error);
-            console.log(data)
 	}, []);
   return (
     <div className=" grid grid-rows-[40%,60%] lg:grid-cols-[40%,60%] px-6 lg:px-[70px] py-[80px] bg-white border-2 border-[#D4D4D4] text-[#211E1D] ">

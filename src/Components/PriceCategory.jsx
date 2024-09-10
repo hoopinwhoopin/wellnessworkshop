@@ -23,15 +23,13 @@ export default function PriceCategory() {
                 what_is_not_included_Bronze,
     }`
 			)
-			.then((data) => {setData(data[0]);setBenefits(data[0].what_is_included_Gold);setNotInc(data['what_is_not_included_Gold'])})
+			.then((data) => {setData(data[0]);setBenefits(data[0].what_is_included_Gold);setNotInc(data[0]['what_is_not_included_Gold'])})
             .catch(console.error);
 	}, []);
-    // let benefits = []
 
     useEffect(() => {
     setBenefits(data[`what_is_included_${card}`]);
     setNotInc(data[`what_is_not_included_${card}`]);
-    console.log(notInc)
     }, [card])
   return (
     <div id="PriceCategory" className='bg-white flex flex-col max-md:p-[7%] py-20'>
@@ -55,7 +53,7 @@ export default function PriceCategory() {
                         </div>
                     )
                 })}
-               {(notInc!=null && notInc.length>0)? notInc.map((value,index)=>{
+               {notInc!=null? notInc.map((value,index)=>{
                             return (
                                 <div key={index} className='flex flex-row items-center p-[6px] ml-2'>
                                     <img className='w-5 h-5' src={x} alt='check'/>

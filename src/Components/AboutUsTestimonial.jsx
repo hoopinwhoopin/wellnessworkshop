@@ -29,7 +29,6 @@ function AboutUsTestimonial(){
 			)
 			.then((data) => {setData(data[0])})
             .catch(console.error);
-            console.log(data)
 	}, []);
     return(
         <div id='AboutUs'>
