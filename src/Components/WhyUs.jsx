@@ -26,16 +26,16 @@ function WhyUs() {
             <div className="text-4xl px-2 md:text-5xl font-semibold  text-center Atvik-Regular " >{data.main_title}</div>
             <img className="md:w-[50vw]  relative  mt-2 " alt="group" src={group} />
              </div>
-            <div className="flex-container   mt-10"> 
+            <div className="grid grid-flow-row grid-cols-1 gap-10 mt-10"> 
          
             <div className ="grid grid-rows-2 gap-3" > 
             <img className="h-[48px] w-[48px] ml-auto object-[top-right] " alt="infinity" src={infinity} />
                 <h1 className="  text-3xl font-bold mt-3 text-right">{data.titles[0]}</h1>
-                <h2 className="  text-1xl font-medium text-right">
+                <h2 className="min-h-20  text-1xl font-medium text-right">
                 {data.contents[0]}</h2>
                  </div>
 
-                 <div className ="grid  grid-rows-2 gap-3 mt-10" > 
+                 <div className ="grid  grid-rows-2 gap-3" > 
                  <img className="h-[48px] w-[48px] ml-auto mt-auto object-[top-right] " alt="checkheart" src={checkheart} />
                 <h1 className="  text-3xl font-bold mt-3 text-right">{data.titles[1]}</h1>
                 <h2 className="  text-1xl font-medium text-right">
@@ -48,15 +48,15 @@ function WhyUs() {
             <div className=" text-[250%]   text-center Atvik-Regular " >{data.main_title}</div>
             <img className="h-[50vh] relative mt-5 -mb-[120px] object-[center_bottom] " alt="group" src={group} />
              </div>
-            <div className="flex  flex-col mt-10"> 
-                <div className ="grid grid-rows-2 gap-3 " > 
+            <div className="grid grid-flow-row grid-cols-1 gap-10 mt-10"> 
+                <div className ="grid grid-rows-2  gap-3 " > 
             <img className="h-[48px] w-[48px] " alt="infinity" src={smile} />
          
                 <h1 className="  text-3xl font-bold mt-3 text-left">{data.titles[2]}</h1>
-                <h2 className="  text-1xl font-medium text-left">
+                <h2 className=" min-h-20 text-1xl font-medium text-left">
                 {data.contents[2]}</h2>
                  </div>
-                 <div className ="grid grid-rows-2 gap-3 mt-10 " > 
+                 <div className ="grid grid-rows-2 gap-3  " > 
                  <img className="h-[48px] w-[48px]   object-[top-left] " alt="checkheart" src={award} />
                 <h1 className="  text-3xl font-bold mt-3 text-left">{data.titles[3]}</h1>
                 <h2 className="  text-1xl font-medium text-left">

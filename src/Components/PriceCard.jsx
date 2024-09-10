@@ -152,7 +152,7 @@ export default function PriceCard({type,page,benefs, autofocus=false}) {
         </div>
         <div className='bg-white flex flex-col top-0 bottom-0 relative rounded-[10px]'>
 
-        <div className='bg-[#B86C53] bg-opacity-5 flex flex-col  p-5'>
+        <div onFocus={()=>{benefs(type)}} onClick={()=>{benefs(type)}} className='bg-[#B86C53] bg-opacity-5 flex flex-col  p-5'>
             <div className='flex flex-row justify-between items-center my-4'>
             <button className='font-semibold text-xl'> {type} Package</button>
             <img className='w-5 h-5 hidden group-focus-within:block' src={check} alt='medal'/>
