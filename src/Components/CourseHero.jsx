@@ -11,7 +11,7 @@ import createClient from "../client"
 function CourseHero() {
     const [searchParams] = useSearchParams();
     const [data, setData] = useState({Description:""});
-    let page = searchParams.get('page') || "1_on_1_Training"; 
+    const page = searchParams.get('page') || "1_on_1_Training"; 
     useEffect(() => { 
 		createClient
 			.fetch(
@@ -22,17 +22,18 @@ function CourseHero() {
 			.then((data) => {setData(data[0]);})
             .catch(console.error);
 	}, []);
-    if (page == "1_on_1_Training") {
-        page = "1 on 1 Session"
+    let pagename = page
+    if (pagename == "1_on_1_Training") {
+        pagename = "1 on 1 Session"
     }
-    page = page.toUpperCase().split('').join(' ')
+    pagename = pagename.toUpperCase().split('').join(' ')
 
     return (
         <div className="max-sm:mt-20 hero-section h-full pt-7 bg-gradient-to-r from-[#FFFFFF00] to-[#F5753B0D] flex flex-col">
             <div id="Hero" className=" flex md:grid md:grid-cols-[55%,1fr] flex-col flex-1 relative sm:pl-7">
             <div className="flex flex-col  pl-[7%] lg:pt-[10%] items-left">
-                <p className="font-semibold text-[#C94277] whitespace-break-spaces text-base">{page}   P A C K A G E S</p>
-                <h1 style={{fontFamily:{AktivGrotesk}}} className="text-2xl flex flex-row flex-wrap font-semibold max-sm:pr-5 mt-5 lg:text-4xl  text-left text-[#000] text-wrap whitespace-nowrap">{data}</h1>
+                <p className="font-semibold text-[#C94277] whitespace-break-spaces text-base">{pagename}   P A C K A G E S</p>
+                <h1 style={{fontFamily:{AktivGrotesk}}} className="text-2xl flex flex-row flex-wrap font-semibold max-sm:pr-5 mt-5 lg:text-4xl  text-left text-[#000] text-wrap whitespace-nowrap">{data.Description}</h1>
                 <div className="flex flex-col justify-around min-h-36 pt-5">
                     <div className="flex flex-row">
                         <img className="w-5 h-5" alt="check" src={check} />

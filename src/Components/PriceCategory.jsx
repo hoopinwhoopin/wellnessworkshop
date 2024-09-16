@@ -23,7 +23,7 @@ export default function PriceCategory() {
                 what_is_not_included_Bronze,
     }`
 			)
-			.then((data) => {setData(data[0]);setBenefits(data[0].what_is_included_Gold);setNotInc(data[0]['what_is_not_included_Gold'])})
+			.then((data) => {setData(data[0]);setBenefits(data[0].what_is_included_Gold);setNotInc(data[0]['what_is_not_included_Gold']);})
             .catch(console.error);
 	}, []);
 
