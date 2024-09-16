@@ -43,8 +43,8 @@ export default function Navlist({callback}) {
     <StyledButton onClick={()=>{callback(false)}} href="/#WhyUs" className='font-semibold text-base text-nowrap max-md:text-3xl w-fit'>Why Us</StyledButton>
     <StyledButton onClick={()=>{callback(false)}} href="/#Gallery" className='font-semibold text-nowrap text-base max-md:text-3xl w-fit'>Gallery</StyledButton>
     <StyledButton  onMouseOver={(e)=>{setAnchorEl(e.currentTarget)}} className='font-semibold text-base text-nowrap max-md:text-3xl h-full w-fit justify-between'>
-        <div className='flex flex-row whitespace-break-spaces items-center gap-5' style={{color:openMenu? "#C94277":"black"}}> 
-            <p>Packages</p>   
+        <div className='flex flex-row whitespace-break-spaces flex-nowrap text-nowrap items-center gap-5' style={{color:openMenu? "#C94277":"black"}}> 
+            <p>Our Packages</p>   
             <Icon openMenu={openMenu}/>
         </div>
     </StyledButton>

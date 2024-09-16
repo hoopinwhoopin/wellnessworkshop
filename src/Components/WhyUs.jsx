@@ -20,7 +20,7 @@ function WhyUs() {
             .catch(console.error);
     } , []);
     return (
-        <div id="WhyUs" className='grid grid-rows-[35%,35%,35%] overflow-hidden md:grid-cols-[27%,46%,27%] px-5 xl:px-[70px] py-[80px] sm:pb-[80px]'>   
+        <div id="WhyUs" className='grid grid-rows-[35%,35%,35%] overflow-hidden md:grid-cols-[27%,46%,27%] px-5 xl:px-[70px]  py-[80px] pb-[100px]'>   
             <div className="mt-4 flex   md:hidden items-center justify-center flex-col">  
                   <h1 className=" text-lg tracking-widest font-bold mb-5 text-center Atvik-Regular whitespace-break-spaces ">W H Y   U S</h1>
             <div className="text-4xl px-2 md:text-5xl font-semibold  text-center Atvik-Regular " >{data.main_title}</div>
@@ -46,7 +46,7 @@ function WhyUs() {
             <div className="mt-4 hidden md:flex -mb-[260px] justify-center flex-col">  
                   <h1 className=" text-base font-medium text-center Atvik-Regular">Why Us</h1>
             <div className=" text-[250%]   text-center Atvik-Regular " >{data.main_title}</div>
-            <img className="h-[50vh] relative mt-5 -mb-[120px] object-[center_bottom] " alt="group" src={group} />
+            <img className="h-[50vh] relative mt-5 -mb-[150px] object-[center_bottom] " alt="group" src={group} />
              </div>
             <div className="grid grid-flow-row grid-cols-1 gap-10 mt-10"> 
                 <div className ="grid grid-rows-2  gap-3 " > 

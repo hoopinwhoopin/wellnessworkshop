@@ -1,14 +1,18 @@
 import React from 'react'
 import logo from '../assets/Logo_w.svg'
 import footv from '../assets/footerC.svg'
+import group from '../assets/Group Photo.svg'
 function Footer() {
   return (
-    <div>
+    <div className=" h-fit justify-center">
+        <div className='h-2  w-[90%] flex justify-end '>
+        <img className='relative -top-80 lg:-top-[352px] h-[360px] ' src={group } alt="" />
+        </div>
     <div className='flex bg-[#211E1D] flex-col lg:flex-row justify-between pt-20 z-10 p-12'>
         <div className='md:w-[24vw] mb-8 flex flex-col'>
         <img className='aspect-auto w-[90%]' src={logo} alt='logo'/>
         <div className='flex text-lg flex-wrap text-white mt-14'>
-        Lorem ipsum dolor sit amet consectetur. Velit vestibulum dignissim morbi aenean lorem risus.
+        #YourHealthHolistically
         </div>
         <div className='max-md:hidden text-white mt-24'>
             <h3>getintouch@moseseffect.com</h3>

@@ -5,10 +5,23 @@ import scrolldown2 from "../assets/Scroll Down.svg"
 import AktivGrotesk from '../Fonts/AktivGrotesk-Medium.ttf'
 import check from "../assets/check.svg"
 import { useSearchParams } from "react-router-dom"
+import { useEffect, useState } from "react"
+import createClient from "../client"
 
 function CourseHero() {
     const [searchParams] = useSearchParams();
-    let page = searchParams.get('page') || "1 on 1 Session"; // Default to page 1
+    const [data, setData] = useState({Description:""});
+    let page = searchParams.get('page') || "1_on_1_Training"; 
+    useEffect(() => { 
+		createClient
+			.fetch(
+				`*[_type == "${page}"]{
+                Description
+    }`
+			)
+			.then((data) => {setData(data[0]);})
+            .catch(console.error);
+	}, []);
     if (page == "1_on_1_Training") {
         page = "1 on 1 Session"
     }
@@ -19,7 +32,7 @@ function CourseHero() {
             <div id="Hero" className=" flex md:grid md:grid-cols-[55%,1fr] flex-col flex-1 relative sm:pl-7">
             <div className="flex flex-col  pl-[7%] lg:pt-[10%] items-left">
                 <p className="font-semibold text-[#C94277] whitespace-break-spaces text-base">{page}   P A C K A G E S</p>
-                <h1 style={{fontFamily:{AktivGrotesk}}} className="text-2xl flex flex-row flex-wrap font-semibold max-sm:pr-5 mt-5 lg:text-4xl  text-left text-[#000] text-wrap whitespace-nowrap">Lose weight, bulk up, get healthy. Whatr your fitness goals, we got you covered</h1>
+                <h1 style={{fontFamily:{AktivGrotesk}}} className="text-2xl flex flex-row flex-wrap font-semibold max-sm:pr-5 mt-5 lg:text-4xl  text-left text-[#000] text-wrap whitespace-nowrap">{data}</h1>
                 <div className="flex flex-col justify-around min-h-36 pt-5">
                     <div className="flex flex-row">
                         <img className="w-5 h-5" alt="check" src={check} />
@@ -27,7 +40,7 @@ function CourseHero() {
                     </div>
                     <div className="flex flex-row items-center">
                         <img className="w-5 h-5" alt="check" src={check} />
-                        <p className="text-[#000] text-base ml-2">Unlimited calls with coaches</p>
+                        <p className="text-[#000] text-base ml-2">Calls with coaches</p>
                     </div>
                     <div className="flex flex-row items-center">
                         <img className="w-5 h-5" alt="check" src={check} />
