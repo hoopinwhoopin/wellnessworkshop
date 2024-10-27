@@ -10,6 +10,7 @@ export default function PriceCategory() {
     const page = searchParams.get('page') || "1_on_1_Training"; // Default to page 1
     const [card, setCard] = useState('Gold')
     const data = description[page].Benefits
+    console.log(description,data)
   return (
     <div id="PriceCategory" className='bg-white flex flex-col max-md:p-[7%] py-20'>
         <div className='bg-white flex flex-col flex-grow items-center justify-center text-center pt-8 p-3'>
