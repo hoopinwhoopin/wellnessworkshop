@@ -1,11 +1,11 @@
 import React from 'react'
 import Icon from '../assets/Icon.jsx'
-import { Menu, MenuItem, styled, useMediaQuery } from "@mui/material";
+import { Menu, MenuItem, styled } from "@mui/material";
 import { useState } from "react";
 import Aktiv from '../Fonts/AktivGrotesk-Regular.ttf'
 
 
-const StyledButton = styled('a')({
+const StyledButton = styled('a')({  
     color: "black",
     display: "flex",
     flexDirection: "column",

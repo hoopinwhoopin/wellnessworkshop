@@ -1,41 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import workout from '../assets/Workout.svg'
 import PackageCard from './PackageCard'
-import guideimg from '../assets/guide.svg'
 import { useRef } from 'react'
-import createClient from '../client'
-
+import { packages } from './apicalls'
 
 
 export default function Packages() {
-  const [data, setData] = useState([{title:"",type:"",guide:"",guideimg:{asset:{url:""}},level:"",weeks:"",image:{asset:{url:""}},desc:""}])
+  const [data, setData] = useState([{title:"",type:"",level:"",weeks:"",image:{asset:{url:""}},desc:""}])
   useEffect(() => { 
-		createClient
-			.fetch(
-				`*[_type == "Packages"]{
-                title,
-                type,
-                guide,
-                guideimg{
-                asset->{
-                _id,
-                url
-                }
-                },
-                level,
-                weeks,
-                image{
-                asset->{
-                _id,
-                url
-                }
-                },
-                desc
-    }`
-			)
-			.then((data) => {setData(data)})
-            .catch(console.error);
-	}, []);
+		setData(packages);
+	}, [packages]);
    const [scrollp,setScrollp]=useState()
    const myRef = useRef(null)
    const barRef = useRef(null)
@@ -59,7 +32,7 @@ export default function Packages() {
         {
           data.map((data,index) => {
             return (
-              <PackageCard key={index} type={data.type} guide={data.guide} guideimg={data.guideimg.asset.url} level={data.level} weeks={data.weeks} image={data.image.asset.url} title={data.title} desc={data.desc}/>
+              <PackageCard key={index} type={data.type} level={data.level} weeks={data.weeks} image={data.image.asset.url} title={data.title} desc={data.desc}/>
             )
           })
         }

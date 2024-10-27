@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useState } from "react";
 import { useEffect } from "react";
-import createClient from "../client";
+import { gallery } from "./apicalls";
   const settings = {
     dots: true,
     infinite: true,
@@ -43,33 +43,26 @@ import createClient from "../client";
 function Gallery(){
     const [images, setImages] = useState({title:"",images:[{asset:{url:""}}]});
     useEffect(() => { 
-        createClient
-            .fetch(
-                `*[_type == "Gallery"]{
-                    title,
-                    images[]{
-                        asset->{
-                            url
-                        }
-                    } 
-        }`
-            )
-            .then((data) => {setImages(data[0])})
-            .catch(console.error);
-    } , []);
+        setImages(gallery);
+    } , [gallery]);
 
     return(<div id="Gallery" className="px-6 lg:px-[70px] py-[80px] bg-white   text-[#211E1D] bg-gradient-to-r from-[#F6C0A90D] to-[#EB9ABA0D]">
     <div className="flex flex-col gap-2">
         <pre className=" text-base font-bold text-left mb-2">G A L L E R Y</pre>
         <p className="text-2xl lg:text-4xl font-semibold tracking-wide text-left mb-3 lg:max-w-[85%]">{images.title}</p>
     </div>
-    <Slider {...settings} className=" flex mt-10 gap-5">
+    <div className="z-0">
+    <Slider {...settings} className="">
         {images.images.map((image, index) => (
             <div key={index} className="">
             <img className="max-md:h-56 aspect-[16/9]" src={image.asset.url} alt="Gallery" />
             </div>
         ))}
       </Slider>
+      </div>
+      <div className="max-sm:pt-8 pt-4">
+      <a href="https://www.instagram.com/thewellness.workshop/" className="text-lg hover:cursor-pointer z-20 bg-gradient-to-br  from-[#833ab4] via-[#c94277] to-[#fcb045] text-transparent bg-clip-text ">@thewellness.workshop</a>
+      </div>
 </div>)
 }
 

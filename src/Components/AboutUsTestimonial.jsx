@@ -1,35 +1,14 @@
-import star from '../assets/star-01.svg';
 import TestimonialImg from '../assets/testimonials.svg';
 import quotes from '../assets/Quotes.svg';
-import VideoImg from '../assets/Demo_Video.svg';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import createClient  from '../client';
+import { AboutUsTestimonials } from './apicalls';
 function AboutUsTestimonial(){
 
     const [data,setData]= useState({rating:4.9,rating_content:"",testimonial_title:"",testimonial_content:"",numbers:[],data_name:[],video:{asset:{url:""}}})
     useEffect(() => { 
-		createClient
-			.fetch(
-				`*[_type == "Data"]{
-                rating,
-                rating_content,
-                testimonial_title,
-                testimonial_content,
-                numbers,
-                data_name,
-                video{
-                asset->{
-                _id,
-                url
-                }
-                }
-                
-    }`
-			)
-			.then((data) => {setData(data[0])})
-            .catch(console.error);
-	}, []);
+		setData(AboutUsTestimonials);
+	}, [AboutUsTestimonials]);
     return(
         <div id='AboutUs'>
         <div className="about-us-testimonial bg-white  px-[4%] py-[80px]  sm:grid sm:grid-cols-[30%,70%] border-[1px] border-[#D4D4D4]">

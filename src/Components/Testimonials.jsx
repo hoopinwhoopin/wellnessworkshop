@@ -1,25 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import placeHolder from "../assets/Image Placeholder.svg"
-import createClient from '../client';
+import { testimonial } from './apicalls';
+
 export default function Testimonials({page='home'}) {
     const [testimonials, setTestimonials] = useState([{testimonial:"",file:{asset:{url:""}},name:"",position:""}, {testimonial:"",file:{asset:{url:""}},name:"",position:""}]);
     useEffect(() => { 
-		createClient
-			.fetch(
-				`*[_type == "testimonial"]{
-      testimonial,
-      file{
-        asset->{
-          _id,
-          url
-        },
-      },
-      name,
-      position,
-    }`
-			)
-			.then((data) => setTestimonials(data))
-            .catch(console.error);
+      setTestimonials(testimonial);
 	}, []);
   return (
     <div className='flex bg-white flex-col justify-center items-center p-20 px-[9.5vw]'>

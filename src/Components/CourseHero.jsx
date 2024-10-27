@@ -6,22 +6,15 @@ import AktivGrotesk from '../Fonts/AktivGrotesk-Medium.ttf'
 import check from "../assets/check.svg"
 import { useSearchParams } from "react-router-dom"
 import { useEffect, useState } from "react"
-import createClient from "../client"
+import { description } from "./apicalls"
 
 function CourseHero() {
     const [searchParams] = useSearchParams();
     const [data, setData] = useState({Description:""});
     const page = searchParams.get('page') || "1_on_1_Training"; 
     useEffect(() => { 
-		createClient
-			.fetch(
-				`*[_type == "${page}"]{
-                Description
-    }`
-			)
-			.then((data) => {setData(data[0]);})
-            .catch(console.error);
-	}, []);
+		setData(description[page]);
+	}, [description]);
     let pagename = page
     if (pagename == "1_on_1_Training") {
         pagename = "1 on 1 Session"

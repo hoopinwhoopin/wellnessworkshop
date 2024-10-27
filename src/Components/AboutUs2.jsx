@@ -1,19 +1,11 @@
-import createClient from "../client";
 import { useEffect, useState } from "react";
+import { AboutUs } from "./apicalls";
 
 function AboutUs2() {
   const [data, setData] = useState({caption:"",text:[]});
-  useEffect(() => { 
-		createClient
-			.fetch(
-				`*[_type == "AboutUs"]{
-                caption,
-                text[]
-    }`
-			)
-			.then((data) => {setData(data[0])})
-            .catch(console.error);
-	}, []);
+  useEffect(() => {
+            setData(AboutUs);
+	}, [AboutUs]);
   return (
     <div className=" grid grid-rows-[40%,60%] lg:grid-cols-[40%,60%] px-6 lg:px-[70px] py-[80px] h-full bg-white border-2 border-[#D4D4D4] text-[#211E1D] ">
         <div className="flex flex-col lg:gap-6">

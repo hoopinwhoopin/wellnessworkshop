@@ -4,20 +4,11 @@ import checkheart from "../assets/check-heart.svg"
 import smile from "../assets/face-happy.svg"
 import award from "../assets/award-05.svg"
 import { useEffect, useState } from "react"
-import createClient from "../client"
+import { whyUs } from "./apicalls"
 function WhyUs() {
     const [data,setData] = useState({main_title:"",titles:[],contents:[]})
     useEffect(() => { 
-        createClient
-            .fetch(
-                `*[_type == "WhyUs"]{
-                    main_title,
-                    titles[],
-                    contents[] 
-        }`
-            )
-            .then((data) => {setData(data[0])})
-            .catch(console.error);
+        setData(whyUs)
     } , []);
     return (
         <div id="WhyUs" className='grid grid-rows-[35%,35%,35%] overflow-hidden md:grid-cols-[27%,46%,27%] px-5 xl:px-[70px]  py-[80px] pb-[100px]'>   

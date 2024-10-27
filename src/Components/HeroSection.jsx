@@ -4,18 +4,11 @@ import dude from "../assets/image 1.png"
 import scrolldown2 from "../assets/Scroll Down.svg"
 import AktivGrotesk from '../Fonts/AktivGrotesk-Medium.ttf'
 import { useEffect, useState } from "react";
-import createClient from "../client";
+import { whatsapp_link } from "./apicalls";
 function HeroSection() {
     const [data, setData] = useState({whatsapp_link:''})
     useEffect(() => {
-        createClient
-          .fetch(
-            `*[_type == "JoinUs"]{
-                    whatsapp_link
-        }`
-          )
-          .then((data) => {setData(data[0])})
-          .catch(console.error);
+       setData({whatsapp_link:whatsapp_link});
       }, []);
     return (
         <div className="hero-section h-full max-sm:mt-10 pt-7 bg-gradient-to-r from-[#FFFFFF00] to-[#F5753B0D] flex flex-col">

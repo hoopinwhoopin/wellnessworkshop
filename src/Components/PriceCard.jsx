@@ -1,86 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import check from '../assets/check.svg'
-import createClient from '../client';
-import { Router, useHref, useNavigate, useNavigation, useRoutes, useSearchParams } from 'react-router-dom';
-export default function PriceCard({type,page,benefs, autofocus=false}) {
+import { description } from './apicalls';
+export default function PriceCard({type,page,benefs}) {
     const [month, setMonth] = useState(1)
     const [prices, setPrices] = useState({Gold: {'Months_1':10500,'Discount_1':null,'Months_3':90,'Discount_3':null,'Months_6':101,'Discount_6':null }, Silver: {'Months_1':10500,'Discount_1':null,'Months_3':90,'Discount_3':null,'Months_6':101,'Discount_6':null }, Bronze: {'Months_1':10500,'Discount_1':null,'Months_3':90,'Discount_3':null,'Months_6':101,'Discount_6':null }, PDFfile: {asset: {url: ""}}})
     const [prices1, setPrices1] = useState({Gold: 1500, Silver: 1000, Bronze: 750, PDFfile: {asset: {url: ""}}})
     const [prices2, setPrices2] = useState({Gold: {"Weeks_8":10500,"Weeks_12":90,"Weeks_24":101 }, Silver: {"Weeks_8":10500,"Weeks_12":90,"Weeks_24":101 }, Bronze: {"Weeks_8":10500,"Weeks_12":90,"Weeks_24":101 }, PDFfile: {asset: {url: ""}}})
     useEffect(() => { 
         if (page === 'Online' || page === 'Offline') {
-		createClient
-			.fetch(
-				`*[_type == "${page}"]{
-                Gold{
-                    Months_1,
-                    Discount_1,
-                    Months_3,
-                    Discount_3,
-                    Months_6,
-                    Discount_6,
-                },
-                Silver{
-                    Months_1,
-                    Discount_1,
-                    Months_3,
-                    Discount_3,
-                    Months_6,
-                    Discount_6,
-                },
-                Bronze{
-                    Months_1,
-                    Discount_1,
-                    Months_3,
-                    Discount_3,
-                    Months_6,
-                    Discount_6,
-                },
-                PDFfile{
-                asset->{
-                    url
-                }}
-    }`
-			)
-			.then((data) => {setPrices(data[0])})
-            .catch(console.error);}
-            else if (page === 'Consultancy') {
-                createClient
-                .fetch(
-                    `*[_type == "${page}"]{
-                    Gold{
-                        Weeks_8,
-                        Weeks_12,
-                        Weeks_24,
-                    },
-                    Silver{
-                        Weeks_8,
-                        Weeks_12,
-                        Weeks_24,
-                    },
-                    Bronze{
-                        Weeks_8,
-                        Weeks_12,
-                        Weeks_24,
-                    },
-                    PDFfile{
-                    asset->{
-                        url
-                    }}
-            }`).then((data) => {setPrices2(data[0])}).catch(console.error);}
-            else {
-                createClient
-                .fetch(
-                    `*[_type == "${page}"]{
-                    Gold,
-                    Silver,
-                    Bronze,
-                    PDFfile{
-                    asset->{
-                        url
-                    }}
-            }`
-        ).then((data) => {setPrices1(data[0])}).catch(console.error);}
+            setPrices(description[page])}
+        else if (page === 'Consultancy') {
+            setPrices2(description[page])}
+        else {
+            setPrices1(description[page])}
 	}, []);
     var deets = {
 

@@ -7,6 +7,7 @@ import Vector from "../assets/Vector \(1\).svg";
 import { useEffect, useState } from "react";
 import Navlist from "./Navlist";
 import createClient  from "../client";
+import { whatsapp_link } from "./apicalls";
 
 
 
@@ -14,20 +15,13 @@ function Navigationbar() {
   const [open, setOpen] = useState(false);
   const [data, setData] = useState({whatsapp_link:''})
   useEffect(() => {
-    createClient
-      .fetch(
-        `*[_type == "JoinUs"]{
-                whatsapp_link
-    }`
-      )
-      .then((data) => {setData(data[0])})
-      .catch(console.error);
+    setData({whatsapp_link:whatsapp_link});
   }, []);
   return (
     <div>
     <div className="navbar max-sm:fixed w-full top-0 flex Atvik-Regular font-medium backdrop-blur-sm bg-white bg-opacity-50 z-20  justify-around lg:py-8 lg:px-16 px-10 py-5">
       <div className="hidden lg:flex flex-1 ">
-          <Navlist  callback={setOpen}/>
+          <Navlist callback={setOpen}/>
       </div>
       <div className="flex flex-row justify-evenly flex-1 items-center lg:hidden">
         <button className="flex flex-1"><img onClick={()=>{setOpen(!open);}} src={open? x_circle:dots} alt="cross"/></button>

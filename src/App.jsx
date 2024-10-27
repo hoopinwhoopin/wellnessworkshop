@@ -9,10 +9,15 @@ import AboutUs2 from './Components/AboutUs2'
 import Gallery from './Components/Gallery'
 import Testimonials from './Components/Testimonials'
 import JoinComment from './Components/JoinComment'
+import Newsletter from './Components/newsletter'
+import Navigationbar from './Components/Navigationbar'
 
 export default function App() {
   return (
     <div>
+      <Newsletter/>
+  <Navigationbar/>
+
         <HeroSection/>
   
   <AboutUsTestimonial/>

@@ -1,19 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import createClient from '../client'
+import { title,whatsapp_link } from './apicalls'
 export default function JoinComment({page='home'}) {
   let bg = page === 'home' ? 'bg-gradient-to-l from-[#C94277] to-[#F4743B]' : 'bg-gradient-to-tr from-[#D7BEBA] via-[#D79D87] to-[#EF9674]'
   let text = page === 'home' ? 'bg-white text-[#C94277]' : 'bg-[#CD7F32] text-white'
   const [data, setData] = useState({title:'',whatsapp_link:''})
   useEffect(() => {
-    createClient
-      .fetch(
-        `*[_type == "JoinUs"]{
-                title,
-                whatsapp_link
-    }`
-      )
-      .then((data) => {setData(data[0])})
-      .catch(console.error);
+    setData({title:title,whatsapp_link:whatsapp_link});
   }, []);
   return (
     <div className='p-8 bg-white lg:p-[70px] -z-10'>
