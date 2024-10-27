@@ -1,36 +1,72 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import check from '../assets/check.svg'
-export default function PriceCard({type, autofocus=false}) {
+import { description } from './apicalls';
+export default function PriceCard({type,page,benefs}) {
     const [month, setMonth] = useState(1)
+    const [prices, setPrices] = useState({Gold: {'Months_1':10500,'Discount_1':null,'Months_3':90,'Discount_3':null,'Months_6':101,'Discount_6':null }, Silver: {'Months_1':10500,'Discount_1':null,'Months_3':90,'Discount_3':null,'Months_6':101,'Discount_6':null }, Bronze: {'Months_1':10500,'Discount_1':null,'Months_3':90,'Discount_3':null,'Months_6':101,'Discount_6':null }, PDFfile: {asset: {url: ""}}})
+    const [prices1, setPrices1] = useState({Gold: 1500, Silver: 1000, Bronze: 750, PDFfile: {asset: {url: ""}}})
+    const [prices2, setPrices2] = useState({Gold: {"Weeks_8":10500,"Weeks_12":90,"Weeks_24":101 }, Silver: {"Weeks_8":10500,"Weeks_12":90,"Weeks_24":101 }, Bronze: {"Weeks_8":10500,"Weeks_12":90,"Weeks_24":101 }, PDFfile: {asset: {url: ""}}})
+    useEffect(() => { 
+        if (page === 'Online' || page === 'Offline') {
+            setPrices(description[page])}
+        else if (page === 'Consultancy') {
+            setPrices2(description[page])}
+        else {
+            setPrices1(description[page])}
+	}, []);
+    var deets = {
 
-    let deets = {
         'Gold': {
             'bgcolor': ['focus-within:bg-[#E9AE16]', 'group-focus-within:bg-[#E9AE16]'],
             'textcolor': 'group-focus-within:text-[#E9AE16]',
             'bordercolor': 'group-focus-within:border-[#E9AE16]',
-            1: 10500,
-            3: 9450,
-            6: 8925,
+            1: prices.Gold.Months_1,
+            '1d': prices.Gold.Discount_1,
+            3: prices.Gold.Months_3,
+            '3d': prices.Gold.Discount_3,
+            6: prices.Gold.Months_6,
+            '6d': prices.Gold.Discount_6,
         },
         'Silver': {
             'bgcolor': ['focus-within:bg-[#211E1D]','group-focus-within:bg-[#211E1D]'],
             'textcolor': 'group-focus-within:text-[#211E1D]',
             'bordercolor': 'group-focus-within:border-[#211E1D]',
-            1: 9500,
-            3: 8300,
-            6: 7650,
+            1: prices.Silver.Months_1,
+            '1d': prices.Silver.Discount_1,
+            3: prices.Silver.Months_3,
+            '3d': prices.Silver.Discount_3,
+            6: prices.Silver.Months_6,
+            '6d': prices.Silver.Discount_6,
         },
         'Bronze': {
             'bgcolor': ['focus-within:bg-[#CD7F32]', 'group-focus-within:bg-[#CD7F32]'],
             'textcolor': 'group-focus-within:text-[#CD7F32]',
             'bordercolor': 'group-focus-within:border-[#CD7F32]',   
-            1: 8500,
-            3: 7500,
-            6: 7000,
+            1: prices.Bronze.Months_1,
+            '1d': prices.Bronze.Discount_1,
+            3: prices.Bronze.Months_3,
+            '3d': prices.Bronze.Discount_3,
+            6: prices.Bronze.Months_6,
+            '6d': prices.Bronze.Discount_6,
         }
         
     }
-    
+    if (page === '1_on_1_Training') {
+        deets['Gold'][1] = prices1.Gold
+        deets['Silver'][1] = prices1.Silver
+        deets['Bronze'][1] = prices1.Bronze
+    }
+    if (page === 'Consultancy') {
+        deets['Gold'][1] = prices2.Gold.Weeks_8
+        deets['Silver'][1] = prices2.Silver.Weeks_8
+        deets['Bronze'][1] = prices2.Bronze.Weeks_8
+        deets['Gold'][3] = prices2.Gold.Weeks_12
+        deets['Silver'][3] = prices2.Silver.Weeks_12
+        deets['Bronze'][3] = prices2.Bronze.Weeks_12
+        deets['Gold'][6] = prices2.Gold.Weeks_24
+        deets['Silver'][6] = prices2.Silver.Weeks_24
+        deets['Bronze'][6] = prices2.Bronze.Weeks_24
+    }   
     let buttonstyle = type === 'Gold' ? 'focus:bg-[#E9AE16] focus:bg-opacity-10' : 
                       type === 'Silver'? 'focus:bg-[#211E1D] focus:bg-opacity-10' : 
                       'focus:bg-[#CD7F32] focus:bg-opacity-10'
@@ -48,36 +84,38 @@ export default function PriceCard({type, autofocus=false}) {
         </div>
         <div className='bg-white flex flex-col top-0 bottom-0 relative rounded-[10px]'>
 
-        <div className='bg-[#B86C53] bg-opacity-5 flex flex-col  p-5'>
+        <div onFocus={()=>{benefs(type)}} onClick={()=>{benefs(type)}} className='bg-[#B86C53] bg-opacity-5 flex flex-col  p-5'>
             <div className='flex flex-row justify-between items-center my-4'>
-            <p className='font-semibold text-xl'> {type} Package</p>
+            <button className='font-semibold text-xl'> {type} Package</button>
             <img className='w-5 h-5 hidden group-focus-within:block' src={check} alt='medal'/>
             </div>
+            {page === '1_on_1_Training' ? null :
             <div className='grid grid-flow-col grid-cols-3 grid-rows-2 text-center justify-between 
                 gap-x-2 gap-y-1 max-w-80'>
                 <button className={buttonst}
-                      onFocus={()=>{setMonth(1)}} onClick={()=>{setMonth(1)}}>1 MONTH</button>
-                <p></p>
-                <button className={buttonst} onFocus={()=>{setMonth(3)}}
-                      onClick={()=>{setMonth(3)}} >3 MONTHS</button>
-                <p className='text-xxs tracking-wider font-semibold text-[#3AA342]'>SAVE 10%</p>
-                <button className={buttonst} onFocus={()=>{setMonth(6)}} 
-                     onClick={()=>{setMonth(6)}}>6 MONTHS</button>
-                <p className='text-xxs tracking-wider font-semibold text-[#3AA342]'>SAVE 15%</p>
-            </div>
+    
+    onFocus={()=>{setMonth(1),benefs(type)} } onClick={()=>{setMonth(1)}} >{page==='Consultancy'?'8 WEEKS':'1 MONTH'}</button>
+                {(page==='Consultancy' || deets[type]['1d']==null) ? <p></p>:<p className='text-xxs tracking-wider font-semibold text-[#3AA342]'>{`SAVE ${deets[type]['1d']}%`}</p>}
+                <button className={buttonst} onFocus={()=>{setMonth(3),benefs(type)} }
+                      onClick={()=>{setMonth(3)}} >{page==='Consultancy'?'12 WEEKS':'3 MONTH'}</button>
+                {page==='Consultancy' || deets[type]['3d']==null ? <p></p>:<p className='text-xxs tracking-wider font-semibold text-[#3AA342]'>{`SAVE ${deets[type]['3d']}%`}</p>}
+                <button className={buttonst} onFocus={()=>{setMonth(6),benefs(type)} } 
+                     onClick={()=>{setMonth(6)}}>{page==='Consultancy'?'24 WEEKS':'6 MONTH'}</button>
+                { page==='Consultancy' || deets[type]['6d']==null ? <p></p>:<p className='text-xxs tracking-wider font-semibold text-[#3AA342]'>{`SAVE ${deets[type]['6d']}%`}</p>}
+            </div>}
         </div>
             <div className=' flex-row bg-[#B86C53] bg-opacity-5 hidden group-focus-within:flex
                 items-center justify-between pt-0 p-5'>
                 <div className='flex flex-col items-center'>
                 <p className='text-xl font-semibold'>
-                    ₹{deets[type][month]}<span className='font-normal'>/month</span></p>
-                <p className={month!==1? 'flex text-[#626262] font-medium':
+                    ₹{deets[type][month]}{page==='Consultancy'? <p></p>:<span className='font-normal'>/month</span>}</p>
+                {page==='Consultancy'? <p></p>:<p className={month!==1? 'flex text-[#626262] font-medium':
                     'hidden text-[#626262] font-medium'}>
                     ₹{deets[type][month]*month}<span className='line-through decoration-1 ml-1'>
-                        ₹{deets[type][1]*month}</span></p>
+                        ₹{deets[type][1]*month}</span></p>}
                 </div>
-                <button className={`text-white font-semibold flex min-h-12 justify-center items-center 
-                    px-4 rounded-md ${deets[type]['bgcolor'][1]}`}>Purchase Plan</button>
+                <a href={prices.PDFfile.asset.url} className={`text-white font-semibold flex min-h-12 justify-center items-center 
+                    px-4 rounded-md ${deets[type]['bgcolor'][1]}`}>Learn More</a>
             </div>
         </div>
     </div>
